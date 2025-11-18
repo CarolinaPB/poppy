@@ -8,6 +8,16 @@ default_container: "docker://hydragenetics/common:1.10.2"
 
 trimmer_software: "fastp_pe"
 
+modules:
+  alignment: v0.5.1
+  annotation: v1.0.0
+  cnv_sv: "1aa9a68"
+  filtering: v0.3.0
+  prealignment: v1.2.0
+  qc: v0.4.1
+  reports: v0.3.1
+  snv_indels_gms: v0.6.0
+
 reference:
   fasta: "{{POPPY_HOME}}/initial_references/ref_data/genome/hg19/human_hs37d5/human_hs37d5.fasta"
   fai: "{{POPPY_HOME}}/initial_references/ref_data/genome/hg19/human_hs37d5/human_hs37d5.fasta.fai"
