@@ -35,7 +35,9 @@ To run this workflow, the following tools need to be available:
 [![snakemake](https://img.shields.io/badge/snakemake-7.32.4-blue)](https://snakemake.readthedocs.io/en/stable/)
 [![singularity](https://img.shields.io/badge/singularity-3.7-blue)](https://sylabs.io/docs/)
 
-# Quick start
+The worflow can be run in a HPC environment that is connected to the internet or not. If no internet connection is available in the HPC environment, note that the pipeline must be [packaged appropriately](https://hydra-genetics.readthedocs.io/en/latest/packaging_pipeline/prepare_pipeline/).
+
+## :school_satchel: Preparations
 
 ## 1. Clone repo
 
