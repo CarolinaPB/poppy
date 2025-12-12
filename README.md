@@ -65,7 +65,9 @@ POPPY_HOME=/path/to/poppy_repo
 source $POPPY_HOME/poppy_env/bin/activate
 
 snakemake --snakefile $POPPY_HOME/workflow/Snakefile_references \
---profile $POPPY_HOME/configs/profiles/references/ \
+--profile $POPPY_HOME/configs/profiles/grid_engine/ \
+--configfile config/config_references_pipeline_<GENOME>.yaml \
+--configfile config/config_<GENOME>.yaml \
 --config POPPY_HOME=$POPPY_HOME
 ```
 
@@ -77,6 +79,7 @@ source $POPPY_HOME/poppy_env/bin/activate
 
 snakemake --snakefile $POPPY_HOME/workflow/Snakefile \
 --profile $POPPY_HOME/configs/profiles/cluster/ \
+--configfile config/config_<GENOME>.yaml \
 --config POPPY_HOME=$POPPY_HOME
 ```
 
@@ -94,7 +97,7 @@ snakemake --snakefile $POPPY_HOME/workflow/Snakefile \
 
 To run Poppy, first go through the setup steps to download and generate reference files.
 
-Generating the necessary references only needs to be done once. To start Poppy, go to [Prepare Poppy run](#prepare-poppy-run).
+Generating the necessary references only needs to be done once. To start Poppy, go to [Prepare Poppy run](#6-prepare-poppy-run).
 
 ### 1. Create python venv
 
@@ -232,12 +235,11 @@ The `config_references_pipeline_<GENOME>.yaml` and `config_<genome>.yaml` don't 
 - `config/config_references_pipeline_<GENOME>.yaml` - necessary to run the references pipeline.
 - `config_<GENOME>.yaml` - main config necessary to run both the references pipeline and Poppy.
 - `config/cnv_genes.<GENOME>.bed` - Optional - make sure that the chromosome column matches the chromosome notation your references are using (chromosome name starts with or without "chr", according to your reference genome).
-- `profiles/grid_engine/config.yaml` - config with cluster settings. The config provided is an example config for a SGE cluster using Singularity. Adjust settings as needed.
-  - This file contains the cluster execution parameters. The snakefile and the config files can be specified in this file or on the command line.
+- `profiles/grid_engine/config.yaml` - config with cluster execution parameters. The config provided is an example config for a SGE cluster using Singularity. Adjust settings as needed. The snakefile and the config files can be specified in this file or on the command line.
 
 Command line:
 `--snakefile <filename>`
-`--config_file <config_references_pipeline_<GENOME>.yaml --config_file config_<GENOME>.yaml`
+`--config_file config_references_pipeline_<GENOME>.yaml --config_file config_<GENOME>.yaml`
 
 In profile config:
 
