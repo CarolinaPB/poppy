@@ -248,7 +248,7 @@ The `config_references_pipeline_<GENOME>.yaml` and `config_<genome>.yaml` don't 
 - `profiles/grid_engine/config.yaml` - config with cluster execution parameters. The config provided is an example config for a SGE cluster using Singularity. Adjust settings as needed. The snakefile and the config files can be specified in this file or on the command line.
 
 Command line:
-`--snakefile <filename>`
+`--snakefile <filename>`  
 `--config_file config_references_pipeline_<GENOME>.yaml --config_file config_<GENOME>.yaml`
 
 In profile config:
