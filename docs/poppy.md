@@ -28,10 +28,13 @@ Execute the command from the location where snakemake should run and where the r
 
 ```bash
 POPPY_HOME=/path/to/poppy_repo
+REFERENCE_DIRECTORY=/path/to/reference_runfolder
 source $POPPY_HOME/poppy_env/bin/activate
 
 snakemake --snakefile $POPPY_HOME/workflow/Snakefile \
 --profile $POPPY_HOME/profiles/grid_engine/ \
---configfile $POPPY_HOME/config/config_<GENOME>.yaml \
---config POPPY_HOME=$POPPY_HOME
+--configfiles \
+$POPPY_HOME/config/config_static.yaml \
+$POPPY_HOME/config/config_custom.yaml \
+--config POPPY_HOME=$POPPY_HOME REFERENCE_DIRECTORY=$REFERENCE_DIRECTORY
 ```
